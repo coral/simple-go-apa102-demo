@@ -2,8 +2,9 @@ package main
 
 import (
 	"flag"
+	"time"
 
-	"github.com/coral/leddemo/strip"
+	"github.com/coral/simple-go-apa102-demo/strip"
 )
 
 var mhz = flag.Int64("megahertz", 6, "what mhz to clock SPI at")
@@ -54,6 +55,7 @@ func main() {
 
 		//Rendera pixlar
 		ls.Render(pixels)
+		time.Sleep(10 * time.Millisecond)
 	}
 
 }

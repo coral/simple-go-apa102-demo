@@ -4,7 +4,6 @@ import (
 	"log"
 	"strconv"
 
-	"github.com/coral/nocube/pkg/utils"
 	"periph.io/x/periph/conn/physic"
 	"periph.io/x/periph/conn/spi"
 	"periph.io/x/periph/conn/spi/spireg"
@@ -60,9 +59,9 @@ func (s *Strip) Render(p []Pixel) {
 	s.buffer = s.buffer[:0]
 	for i, p := range p {
 		s.buffer = append(s.buffer, []byte{
-			utils.Clamp255(p.R * 255),
-			utils.Clamp255(p.G * 255),
-			utils.Clamp255(p.B * 255),
+			clamp255(p.R * 255),
+			clamp255(p.G * 255),
+			clamp255(p.B * 255),
 			byte(i),
 		}...)
 	}
